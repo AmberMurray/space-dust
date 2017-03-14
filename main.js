@@ -5,8 +5,9 @@ let apodURL = 'https://api.nasa.gov/planetary/apod?api_key='
 let astroURL = function (startDate) {
   return 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + startDate + '&api_key='
 }
-
 let busLength = 45
+let wkOfEvents = {}
+
 
 //Get user date
 $('.user-date-input').on('submit', function (e) {
@@ -25,36 +26,43 @@ $('.user-date-input').on('submit', function (e) {
       let numEvents = data.element_count
       $('#event_total').append(numEvents)
 
-      let wkOfEvents = data.near_earth_objects
+      console.log(data)
+      wkOfEvents = data.near_earth_objects
 
       for(let date in wkOfEvents) {
 
         let dailyCount = wkOfEvents[date].length
-        $('#day-select').append('<option>'+ date + ' Count: ' + dailyCount + '</option')
+        $('#day-select').append('<option value="' + date + '">'+ date + ' Count: ' + dailyCount + '</option')
 
-        for(i = 0; i < wkOfEvents[date].length; i++) {
-          let name =  wkOfEvents[date][i]['name']
-          let haz = wkOfEvents[date][i]['is_potentially_hazardous_asteroid']
-
-          //school bus calc
-          let diaMax = Math.round(wkOfEvents[date][i]['estimated_diameter']['feet']['estimated_diameter_max'])
-          let diaMin = Math.round(wkOfEvents[date][i]['estimated_diameter']['feet']['estimated_diameter_min'])
-          let dia = (diaMax + diaMin)/2
-          let astroBus = Math.round((dia/45))
-
-          let dist = Math.round(wkOfEvents[date][i]['close_approach_data'][0]['miss_distance']['miles'])
-          let easyDist = dist.toLocaleString('en')
-
-          let approachDate = wkOfEvents[date][i]['close_approach_data'][0]['close_approach_date']
-
-          $('tbody').append('<tr><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td><td>'+ approachDate +'</td>' + '</tr>')
-
-          $('#bad-select').append()
-        }
       }
     }
   })
 })
+
+
+
+//allow user to select from dropdown
+$('#day-select').on('change', function() {
+  $('tbody').empty()
+  dayVal = $('#day-select option:selected').val()
+
+  for(i = 0; i < wkOfEvents[dayVal].length; i++) {
+    let name =  wkOfEvents[dayVal][i]['name']
+    let haz = wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid']
+
+    //school bus calc
+    let diaMax = Math.round(wkOfEvents[dayVal][i]['estimated_diameter']['feet']['estimated_diameter_max'])
+    let diaMin = Math.round(wkOfEvents[dayVal][i]['estimated_diameter']['feet']['estimated_diameter_min'])
+    let dia = (diaMax + diaMin)/2
+    let astroBus = Math.round((dia/45))
+
+    let dist = Math.round(wkOfEvents[dayVal][i]['close_approach_data'][0]['miss_distance']['miles'])
+    let easyDist = dist.toLocaleString('en')
+
+      $('tbody').append('<tr><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
+    }
+})
+
 
 
 //Astronomy Pic of the Day
