@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Space Dust</title>
+
+  <!-- normalize -->
+  <link rel="stylesheet" href="css/skeleton_normalize.css">
+  <!-- css links -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+
+  <!-- js links and jquery -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script defer type="text/javascript" src="main.js"></script>
+
+</head>
+<body>
+
+  <br>
+  <div class="row">
+    <div class="astro-pic-of-the-day three columns">
+      <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
+      <h4 id="astro-pic-title"></h4>
+    </div>
+  </div>
+
+  <!-- User Input Form -->
+  <div class="user-input-form six columns offset-by-three">
+    <form class="user-date-input" action="index.html" method="post">
+      <label class="startDate">Start Date</label>
+      YR:  <input id="year-date" type="year" name="date-yr" value="" placeholder="YYYY">
+      MO:  <input id="month-date" type="day" name="date-mo" value="" placeholder="MO">
+      DAY: <input id="day-date" type="day" name="date-day" value="" placeholder="DY">
+      <input class="button-primary" type="submit" value="submit">
+      <label id="event_total" for="event totals">Total Events: </label>
+    </form>
+  </div>
+
+  <div class="row"><br></div>
+  <div class="row"><br></div>
+
+  <!-- Astro Data -->
+  <table id="astro-data" class="astro-data-table u-full-width">
+    <thead>
+      <th class="day-of-week">Week
+          <select id="day-select" class="u-full-width" name="">
+            <!-- <option value="true">True</option>
+            <option value="false">False</option> -->
+          </select>
+      </th>
+
+      <!-- <th>Number of Events</th>
+      <th class="event_total">Total: </th> -->
+      <tr></tr>
+        <th class="potential-haz">Bad 4 Earth
+            <select id="bad-select" class="u-full-width" name="">
+              <!-- <option value="true">True</option>
+              <option value="false">False</option> -->
+            </select>
+        </th>
+
+        <th>Name</th>
+        <th># of <br>School Busses</th>
+        <th>Ave Diameter (ft)</th>
+        <th>Miss Distance (mi)</th>
+        <th>Approach Date</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+
+  </body>
+  </html>

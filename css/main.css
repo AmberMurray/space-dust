@@ -1,0 +1,34 @@
+* body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Astro Pic */
+.astro-pic-of-the-day {
+  border: 1px solid black;
+  background-color: rgb(204, 204, 204);
+  margin: 0 auto;
+}
+
+#astro-pic-img {
+  width: 100%;
+}
+
+
+/* User Input Form*/
+.startDate {
+  font-size: 1.5rem;
+  line-height: 5.5rem;
+}
+
+.user-input-form {
+  border: 1px solid black;
+  font-size: 1.0rem;
+  text-align: center;
+}
+
+/* Data Table*/
+#astro-data {
+  border: 1px solid black;
+  font-size: 0.75rem;
+}
