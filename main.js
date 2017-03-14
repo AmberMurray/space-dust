@@ -24,7 +24,7 @@ $('.user-date-input').on('submit', function (e) {
     method: 'get',
     success: function (data) {
       let numEvents = data.element_count
-      $('#event_total').append(numEvents)
+      $('#astro-total').append(numEvents)
 
       console.log(data)
       wkOfEvents = data.near_earth_objects
@@ -39,9 +39,7 @@ $('.user-date-input').on('submit', function (e) {
   })
 })
 
-
-
-//allow user to select from dropdown
+//allow user to select from week dropdown
 $('#day-select').on('change', function() {
   $('tbody').empty()
   dayVal = $('#day-select option:selected').val()

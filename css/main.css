@@ -3,9 +3,10 @@
   margin: 0 auto;
 }
 
-/* Astro Pic */
+
+/* astro pic */
+
 .astro-pic-of-the-day {
-  border: 1px solid black;
   background-color: rgb(204, 204, 204);
   margin: 0 auto;
 }
@@ -14,21 +15,35 @@
   width: 100%;
 }
 
-
-/* User Input Form*/
-.startDate {
-  font-size: 1.5rem;
-  line-height: 5.5rem;
-}
-
-.user-input-form {
-  border: 1px solid black;
-  font-size: 1.0rem;
+#astro-pic-title {
   text-align: center;
+  font-size: 1.5rem;
 }
 
-/* Data Table*/
+/* form styling */
+
+.user-date-input {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.day-of-week {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* table styling */
+
 #astro-data {
-  border: 1px solid black;
-  font-size: 0.75rem;
+  float: right;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  margin: 0 auto;
+
+  font-size: 1.4rem;
+}
+
+th {
+  text-align: center;
+  line-height: 1.0;
 }
