@@ -6,7 +6,7 @@ Potentially Hazardous Asteroids (PHAs) are currently defined based on parameters
 
 There are currently 1777 known PHAs.
 
-This ``potential'' to make close Earth approaches does not mean a PHA will impact the Earth. It only means there is a possibility for such a threat. By monitoring these PHAs and updating their orbits as new observations become available, we can better predict the close-approach statistics and thus their Earth-impact threat.
+This potential to make close Earth approaches does not mean a PHA will impact the Earth. It only means there is a possibility for such a threat. By monitoring these PHAs and updating their orbits as new observations become available, we can better predict the close-approach statistics and thus their Earth-impact threat.
 
 NOTICE: The NEO Program Office website is being retired. Please use the new CNEOS site (update your bookmarks and links). The legacy NEO site will be available until late March 2017, after which you will be automatically redirected to the new CNEOS site.
 

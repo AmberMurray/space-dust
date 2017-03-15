@@ -1,8 +1,8 @@
 * body {
   width: 90%;
   margin: 0 auto;
-}
 
+}
 
 /* astro pic */
 
@@ -27,12 +27,24 @@
   margin: 0 auto;
 }
 
+#event_total {
+  display: none;
+}
+
+.day-of-week-container {
+  display: none;
+}
+
 .day-of-week {
   text-align: center;
   margin: 0 auto;
 }
 
 /* table styling */
+
+.astro-table-container {
+  display: none;
+}
 
 #astro-data {
   float: right;
@@ -43,7 +55,7 @@
   font-size: 1.4rem;
 }
 
-th {
+th, td {
   text-align: center;
   line-height: 1.0;
 }
