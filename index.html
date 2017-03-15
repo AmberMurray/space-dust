@@ -32,12 +32,10 @@
     <br>
     <div class="day-of-week-container">
       <form class="day-of-week" action="index.html" method="post">
-        <label for="day-of-week-select">Pick A Day</label>
+        <label for="day-of-week-select">Other Days</label>
         <select id="day-select" value="">
           <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
         </select>
-        <label id="daily-count-ttl" class="two coluns" for="daily totals">Total Asteroids Today:</label>
-        <label id="astro-day-total" for="day-total"> </label>
       </form>
     </div>
   </form>
@@ -51,7 +49,12 @@
     <div class="astro-table-container four columns ">
       <table id="astro-data" class="astro-data-table">
         <thead>
-
+          <tr>
+          <th id="daily-count-ttl" colspan='2' for="daily totals"></th>
+          <th></th>
+          <th id="astro-day-total"colspan='3' for="day-total"> </th>
+          <th></th>
+          </tr>
         </thead>
         <thead>
           <th class="potential-haz">Bad 4 Earth</th>
