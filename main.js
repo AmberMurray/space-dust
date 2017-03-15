@@ -8,7 +8,6 @@ let astroURL = function (startDate) {
 let busLength = 45
 let wkOfEvents = {}
 
-
 //Get user date
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
@@ -29,7 +28,6 @@ $('.user-date-input').on('submit', function (e) {
       $('#event_total').show()
       $('.day-of-week-container').show()
 
-
       // console.log(data)
       wkOfEvents = data.near_earth_objects
 
@@ -37,10 +35,14 @@ $('.user-date-input').on('submit', function (e) {
 
         let dailyCount = wkOfEvents[date].length
         $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
-
       }
     }
   })
+
+  $('#event_total').append('Total Asteroids For: ' + month + '/' + day + '/' + year)
+  $('#month-date').val('')
+  $('#day-date').val('')
+  $('#year-date').val('')
 })
 
 //allow user to select from week dropdown
@@ -55,9 +57,16 @@ $('#day-select').on('change', function() {
 
 //build table based on user dropdown choice
 function buildTableDAta (dayVal) {
+  let haz = ''
   for(i = 0; i < wkOfEvents[dayVal].length; i++) {
     let name =  wkOfEvents[dayVal][i]['name']
-    let haz = wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid']
+    haz = (wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid'])
+
+    if (haz) {
+      haz = 'HIDE!';
+    } else {
+      haz = 'Whatevs';
+    }
 
     //school bus calc
     let diaMax = Math.round(wkOfEvents[dayVal][i]['estimated_diameter']['feet']['estimated_diameter_max'])
@@ -69,6 +78,7 @@ function buildTableDAta (dayVal) {
     let easyDist = dist.toLocaleString('en')
 
     $('tbody').append('<tr><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
+
   }
 }
 

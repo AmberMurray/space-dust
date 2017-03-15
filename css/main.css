@@ -40,6 +40,10 @@
   margin: 0 auto;
 }
 
+#day-select {
+  background-color: #33C3F0
+}
+
 /* table styling */
 
 .astro-table-container {
@@ -51,6 +55,7 @@
   display: inline-block;
   border: 1px solid rgb(0, 0, 0);
   margin: 0 auto;
+  padding: 8px;
 
   font-size: 1.4rem;
 }

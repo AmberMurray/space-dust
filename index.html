@@ -20,50 +20,54 @@
   <br>
   <!-- User Input Form -->
   <br>
-    <form class="user-date-input two columns offset-by-one" action="index.html" method="post">
-      <label class="startDate">Enter A Date</label>
-      <input id="month-date" type="day" maxlength="2" name="date-mo" value="" placeholder="MO">
-      <input id="day-date" type="day" name="date-day" maxlength="2" value="" placeholder="DY">
-      <input id="year-date" type="day" name="date-yr" maxlength="4"  value="" placeholder="YYYY">
-      <input class="button-primary" type="submit" value="submit">
-      <label id="event_total" class="two coluns" for="event totals">Total Asteroids This Week:</label>
-      <label id="astro-total" for="astro-total"> </label>
-      <br>
-      <div class="day-of-week-container">
-        <form class="day-of-week" action="index.html" method="post">
-          <label for="day-of-week-select">Pick A Day</label>
-          <select id="day-select" value="">
-            <<option value="" disabled selected>Choose wisely!</option>
-          </select>
-          <label id="daily-count-ttl" class="two coluns" for="daily totals">Total Asteroids Today:</label>
-          <label id="astro-day-total" for="day-total"> </label>
-        </form>
-      </div>
+  <form class="user-date-input two columns offset-by-one" action="index.html" method="post">
+    <label class="startDate">Enter A Date</label>
+    <input id="month-date" type="day" maxlength="2" name="date-mo" value="" placeholder="MO">
+    <input id="day-date" type="day" name="date-day" maxlength="2" value="" placeholder="DY">
+    <input id="year-date" type="day" name="date-yr" maxlength="4"  value="" placeholder="YYYY">
+    <input class="button-primary" type="submit" value="submit">
+    <label id="event_total" class="two coluns" for="event totals"></label>
+    <label id="astro-total" for="astro-total"> </label>
+
+    <br>
+    <div class="day-of-week-container">
+      <form class="day-of-week" action="index.html" method="post">
+        <label for="day-of-week-select">Pick A Day</label>
+        <select id="day-select" value="">
+          <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
+        </select>
+        <label id="daily-count-ttl" class="two coluns" for="daily totals">Total Asteroids Today:</label>
+        <label id="astro-day-total" for="day-total"> </label>
+      </form>
+    </div>
   </form>
 
-      <div class="row astro-pic-home">
-        <div class="astro-pic-of-the-day four columns offset-by-one">
-          <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
-          <h4 id="astro-pic-title"></h4>
-        </div>
-
-      <div class="astro-table-container four columns ">
-        <table id="astro-data" class="astro-data-table">
-          <thead>
-            <th class="potential-haz">Bad 4 Earth</th>
-            <th>Name</th>
-            <th># School Busses Long</th>
-            <th>Ave Diameter (ft)</th>
-            <th>How Close? (mi)</th>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+  <div class="row astro-pic-home">
+    <div class="astro-pic-of-the-day four columns offset-by-one">
+      <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
+      <h4 id="astro-pic-title"></h4>
     </div>
 
-    <!-- Astro Data -->
+    <div class="astro-table-container four columns ">
+      <table id="astro-data" class="astro-data-table">
+        <thead>
+
+        </thead>
+        <thead>
+          <th class="potential-haz">Bad 4 Earth</th>
+          <th>Name</th>
+          <th># School Busses Long</th>
+          <th>Ave Diameter (ft)</th>
+          <th>How Close? <br>(mi)</th>
+        </thead>
+        <tbody id="astro-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Astro Data -->
 
 
 
-  </body>
-  </html>
+</body>
+</html>
