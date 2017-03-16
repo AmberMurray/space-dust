@@ -4,6 +4,9 @@
   background-color: rgb(38,38,38)
 }
 
+.whitespace {
+  height: 50px;
+}
 main {
   width: 90%;
   margin: 0 auto;
@@ -11,7 +14,7 @@ main {
 
 nav {
   width: auto;
-  height: 80px;
+  height: 90px;
   background-color: rgb(57,57,57)
 }
 
@@ -26,17 +29,49 @@ nav {
   color: rgb(255,255,255);
   letter-spacing: 0.8rem;
   line-height: 3.0rem;
-  /*float: right;*/
   background-color: rgb(1,102,179);
-  margin: 0 auto;
+  margin-top: 25px;
   height: 30px;
   width: 120px;
   border-radius: 2px;
 }
 
+#earth-link {
+  float: left;
+  margin-left: 40px;
+}
+
+#cneos-link {
+  float: right;
+  margin-right: 40px;
+}
+
 #nav-links a {
   color: rgb(255,255,255);
   text-decoration: none;
+}
+
+#logo-container {
+  display: inline-block;
+}
+
+#space-dust-logo {
+  height: 80px;
+
+  margin-top: 5px;
+}
+
+#site-title-container {
+  text-align: left;
+  margin:35px auto 0;
+}
+
+#space-dust-title {
+  display: inline-block;
+  font-size: 3.0rem;
+  color: rgb(1,102,179);
+  letter-spacing: 0.55rem;
+  margin: 0 auto;
 }
 
 /* astro pic */

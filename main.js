@@ -8,9 +8,6 @@ let astroURL = function (startDate) {
 let busLength = 45
 let wkOfEvents = {}
 let dayVal = ''
-// let year = ''
-// let month = ''
-// let day = ''
 let startDate = ''
 
 $('#astro-pic-img').hover(function () {

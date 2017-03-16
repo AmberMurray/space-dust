@@ -18,17 +18,22 @@
 </head>
 <body>
   <nav>
+    <div id="logo-container" class="one column offset-by-one">
+      <img id="space-dust-logo" src="css/space-dust-logo-small.png" alt="">
+    </div>
+    <div id="site-title-container" class="two columns">
+      <h6 id="space-dust-title">Space Dust</h6>
+    </div>
     <div id="nav-links">
-      <li>EARTH</li>
-      <li><a href="https://cneos.jpl.nasa.gov/" target="_blank">CNEOS</a></li>
+      <li id="earth-link">EARTH</li>
+      <li id="cneos-link"><a href="https://cneos.jpl.nasa.gov/" target="_blank">CNEOS</a></li>
     </div>
   </nav>
 
   <main>
 
-
     <!-- User Input Form -->
-    <br>
+    <div class="whitespace"></div>
     <form class="user-date-input two columns offset-by-one" action="index.html" method="post">
       <label class="startDate">Enter A Date</label>
       <input id="month-day-year" type="date" maxlength="2" name="date-mo" value="">
@@ -43,14 +48,6 @@
             <option id="pick-a-day" class="button-primary" value="" disabled selected>Choose wisely!</option>
           </select>
         </form>
-      </div>
-    </form>
-
-    <div class="row astro-pic-home">
-      <div class="astro-pic-of-the-day four columns offset-by-one">
-        <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
-        <h4 id="astro-pic-title"></h4>
-        <div id="astro-pic-deets"></div>
       </div>
 
       <div class="astro-table-container four columns ">
@@ -77,6 +74,16 @@
           <tbody id="astro-table-body"></tbody>
         </table>
       </div>
+    </form>
+
+    <div class="row astro-pic-home">
+      <div class="astro-pic-of-the-day four columns offset-by-one">
+        <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
+        <h4 id="astro-pic-title"></h4>
+        <div id="astro-pic-deets"></div>
+      </div>
+
+
     </div>
 
   </main>
