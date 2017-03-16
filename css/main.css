@@ -1,8 +1,42 @@
 * body {
+  margin: 0 auto;
+  /*background-color: rgb(49, 99, 178)*/
+  background-color: rgb(38,38,38)
+}
+
+main {
   width: 90%;
   margin: 0 auto;
-  background-color: rgb(49, 99, 178)
+}
 
+nav {
+  width: auto;
+  height: 80px;
+  background-color: rgb(57,57,57)
+}
+
+#nav-links {
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+#nav-links li {
+  display: inline-block;
+  color: rgb(255,255,255);
+  letter-spacing: 0.8rem;
+  line-height: 3.0rem;
+  /*float: right;*/
+  background-color: rgb(1,102,179);
+  margin: 0 auto;
+  height: 30px;
+  width: 120px;
+  border-radius: 2px;
+}
+
+#nav-links a {
+  color: rgb(255,255,255);
+  text-decoration: none;
 }
 
 /* astro pic */
@@ -53,11 +87,16 @@
   margin: 0 auto;
 }
 
-#day-select {
-  background-color: #33C3F0
+#submit-button, #day-select {
+  background-color: rgb(1,102,179)
+
 }
 
 label {
+  color: #FFF;
+}
+
+option {
   color: white;
 }
 
@@ -67,8 +106,6 @@ label {
   display: none;
 }
 
-
-
 #astro-data {
   float: right;
   display: inline-block;
@@ -76,7 +113,7 @@ label {
   margin: 0 auto;
   padding: 8px;
   font-size: 1.4rem;
-  background-color: rgb(255, 255, 255)
+  background-color: rgb(204, 204, 204)
 
 }
 
