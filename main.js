@@ -6,46 +6,45 @@ let astroURL = function (startDate) {
   return 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + startDate + '&api_key='
 }
 let busLength = 45
-let wkOfEvents = []
+let wkOfEvents = {}
+let dayVal = ''
+let year = ''
+let month = ''
+let day = ''
+let startDate = ''
 
 //Get user date
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
 
-  //make date for ajax request
-  let year = $('#year-date').val()
-  let month = $('#month-date').val()
-  let day = $('#day-date').val()
-  let startDate = year + '-' + month + '-' + day
+  //format date for ajax request, reset form fields
+  startDate = $('#month-day-year').val()
 
   makeRequest(startDate)
 
-  $('#event_total').append('Total Asteroids For: ' + month + '/' + day + '/' + year)
-  $('#month-date').val('')
-  $('#day-date').val('')
-  $('#year-date').val('')
-
-  buildTableDAta
+  //get table ready
+  $('#event_total').append('Week Of ' + startDate)
+  $('#month-day-year').val('')
 })
 
 //allow user to select from week dropdown
-$('#day-select').on('change', function() {
-  $('tbody').empty()
-  $('#astro-day-total').empty()
-  $('.astro-table-container').show()
-  dayVal = $('#day-select option:selected').val()
-  $('#daily-count-ttl').append('Date: ' + dayVal)
-  $('#astro-day-total').append('Asteroid Count: ' + wkOfEvents[dayVal].length)
+  $('#day-select').on('change', function() {
+    $('tbody').empty()
+    $('#astro-day-total').empty()
+    $('#daily-count-ttl').empty()
 
-  buildTableDAta(dayVal)
-})
+    dayVal = $('#day-select option:selected').val()
+    $('#daily-count-ttl').append('Date: ' + dayVal)
+    $('#astro-day-total').append('Day Count: ' + wkOfEvents[dayVal].length)
+
+    buildTableDAta(dayVal)
+  })
 
 //build table based on user dropdown choice
 function buildTableDAta (dayVal) {
-
   for(i = 0; i < wkOfEvents[dayVal].length; i++) {
     let name =  wkOfEvents[dayVal][i]['name']
-    let haz = (wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid'])
+    let haz = wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid']
 
     if (haz) {
       haz = 'HIDE!';
@@ -74,7 +73,7 @@ function makeRequest(startDate) {
     success: function (data) {
 
       let numEvents = data.element_count
-      $('#astro-total').append(numEvents)
+      $('#astro-total').append('Week Count: ' + numEvents)
 
       $('#event_total').show()
       $('.day-of-week-container').show()
@@ -83,17 +82,18 @@ function makeRequest(startDate) {
 
       for(let date in wkOfEvents) {
 
-        let dailyCount = wkOfEvents[date].length
-        $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
+      $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
       }
-      //build table based on date user enters
-      // $('tbody').empty()
-      // $('#astro-day-total').empty()
-      // $('.astro-table-container').show()
-      //
-      // console.log(wkOfEvents[0])
-      // buildTableDAta(0)
+
+      $('.astro-table-container').show()
+      $('#daily-count-ttl').append('Date: ' + startDate)
+      $('#astro-day-total').append('Day Count: ' + (wkOfEvents[startDate].length))
+
+      buildTableDAta(startDate)
     }
+    // error: function (error) {
+    //   console.log('Error: ', error)
+    // }
   })
 }
 
@@ -103,7 +103,10 @@ $.ajax({
   url: apodURL + apiKey,
   method: 'get',
   success: function (data) {
+
+    console.log(data)
     $('#astro-pic-img').attr('src', data.url)
     $('#astro-pic-title').text(data.title)
+    $('#astro-pic-deets').append('<p>' + data.explanation  + '</p>')
   }
 })

@@ -21,6 +21,13 @@
   font-size: 1.5rem;
 }
 
+#astro-pic-deets {
+  margin: 0 auto;
+  padding: 5px 20px 20px;
+  text-align: justify;
+  display: none;
+}
+
 /* form styling */
 
 .user-date-input {
@@ -45,6 +52,10 @@
   background-color: #33C3F0
 }
 
+label {
+  color: white;
+}
+
 /* table styling */
 
 .astro-table-container {
@@ -62,7 +73,15 @@
 
 }
 
+#astro-data-main-head {
+  text-align: left;
+}
+
+
 th, td {
-  text-align: center;
   line-height: 1.0;
+}
+
+td {
+  text-align: center;
 }

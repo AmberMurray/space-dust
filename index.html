@@ -22,19 +22,16 @@
   <br>
   <form class="user-date-input two columns offset-by-one" action="index.html" method="post">
     <label class="startDate">Enter A Date</label>
-    <input id="month-date" type="day" maxlength="2" name="date-mo" value="" placeholder="MO">
-    <input id="day-date" type="day" name="date-day" maxlength="2" value="" placeholder="DY">
-    <input id="year-date" type="day" name="date-yr" maxlength="4"  value="" placeholder="YYYY">
+    <input id="month-day-year" type="date" maxlength="2" name="date-mo" value="">
     <input class="button-primary" type="submit" value="submit">
-    <label id="event_total" class="two coluns" for="event totals"></label>
-    <label id="astro-total" for="astro-total"> </label>
+
 
     <br>
     <div class="day-of-week-container">
       <form class="day-of-week" action="index.html" method="post">
-        <label for="day-of-week-select">Other Days</label>
+        <label for="day-of-week-select">Other Days Around Your Date</label>
         <select id="day-select" value="">
-          <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
+          <option id="pick-a-day" class="button-primary" value="" disabled selected>Choose wisely!</option>
         </select>
       </form>
     </div>
@@ -44,16 +41,21 @@
     <div class="astro-pic-of-the-day four columns offset-by-one">
       <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
       <h4 id="astro-pic-title"></h4>
+      <div id="astro-pic-deets"></div>
     </div>
 
     <div class="astro-table-container four columns ">
       <table id="astro-data" class="astro-data-table">
-        <thead>
+        <thead id="astro-data-main-head">
           <tr>
-          <th id="daily-count-ttl" colspan='2' for="daily totals"></th>
-          <th></th>
-          <th id="astro-day-total"colspan='3' for="day-total"> </th>
-          <th></th>
+            <th id="event_total" colspan='3' for="event totals"></th>
+            <th id="astro-total" colspan='2' for="astro-total"></th>
+          </tr>
+          <tr>
+          <th id="daily-count-ttl" colspan='3' for="daily totals"></th>
+
+          <th id="astro-day-total"colspan='2' for="day-total"> </th>
+
           </tr>
         </thead>
         <thead>
