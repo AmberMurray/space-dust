@@ -7,9 +7,13 @@
 .whitespace {
   height: 50px;
 }
-main {
-  width: 90%;
-  margin: 0 auto;
+
+.morewhitespace {
+  height: 25px;
+}
+
+.info-wrapper {
+  width: 100%;
 }
 
 /* NAV BAR ---------------- */
@@ -19,10 +23,15 @@ nav {
   background-color: rgb(57,57,57)
 }
 
-#nav-links {
-  text-align: center;
-  width: 30%;
+main {
+  width: 90%;
   margin: 0 auto;
+}
+
+#nav-links {
+  float: right;
+  text-align: center;
+  margin: 0 60px 0 0;
 }
 
 #nav-links li {
@@ -37,14 +46,8 @@ nav {
   border-radius: 2px;
 }
 
-#earth-link {
-  float: left;
-  margin-left: 40px;
-}
-
 #cneos-link {
-  float: right;
-  margin-right: 40px;
+  margin: 0 30px 0 0 ;
 }
 
 #nav-links a {
@@ -54,11 +57,12 @@ nav {
 
 #logo-container {
   display: inline-block;
+  margin-left: 5%;
 }
 
 #space-dust-logo {
   height: 80px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 #site-title-container {
@@ -127,7 +131,7 @@ nav {
   background-color: rgb(1,102,179)
 }
 
-.startDate {
+.startDate, #day-of-the-week-selector {
   font-size: 2.2rem;
   letter-spacing: 0.45rem;
 }
@@ -139,12 +143,16 @@ nav {
 }
 
 label {
-  color: #FFF;
+  color: rgb(255,255,255);
+  font-size: 2.2rem;
+  letter-spacing: 0.45rem
 }
 
 option {
-  color: white;
+  color: rgb(255,255,255);
 }
+
+
 
 /* TABLE ---------------- */
 
@@ -167,11 +175,24 @@ option {
   text-align: left;
 }
 
-
 th, td {
   line-height: 1.0;
 }
 
 td {
   text-align: center;
+}
+
+.death {
+  color: #CC0308;
+  font-weight: 600;
+}
+
+/* BUS ANIMATION ---------------- */
+
+#astro-bus-animate {
+
+  position: absolute;
+  top: 675px;
+  height: 175px;
 }

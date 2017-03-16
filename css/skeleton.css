@@ -388,7 +388,7 @@ hr {
 .row:after,
 .u-cf {
   content: "";
-  display: table;
+  /*display: table;*/
   clear: both; }
 
 

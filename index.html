@@ -20,14 +20,13 @@
 
   <!-- Nav Bar -->
   <nav>
-    <div id="logo-container" class="one column offset-by-one">
+    <div id="logo-container" class="one column">
       <img id="space-dust-logo" src="css/space-dust-logo-small.png" alt="">
     </div>
     <div id="site-title-container" class="two columns">
       <h6 id="space-dust-title">Space Dust</h6>
     </div>
     <div id="nav-links">
-      <li id="earth-link">EARTH</li>
       <li id="cneos-link"><a href="https://cneos.jpl.nasa.gov/" target="_blank">CNEOS</a></li>
     </div>
   </nav>
@@ -37,25 +36,29 @@
     <div class="whitespace"></div>
 
     <!-- User Input Form -->
+    <!-- <div class="info-wrapper"> -->
     <form class="user-date-input six columns" action="index.html" method="post">
       <label class="startDate">Enter A Date</label>
       <input id="month-day-year"type="date" maxlength="2" name="date-mo" value="">
       <input id="submit-button" class="button-primary" type="submit" value="submit">
 
-      <div class="whitespace"></div>
+      <div class="morewhitespace"></div>
 
       <!-- Pick Another Day Selector -->
       <div class="day-of-week-container">
         <form class="day-of-week" action="index.html" method="post">
-          <label for="day-of-week-select">Other Days Around Your Date</label>
+          <label id="day-of-week-select">Other Days Around Your Date</label>
           <select id="day-select" value="">
-            <option id="pick-a-day" class="button-primary" value="" disabled selected>Choose wisely!</option>
+            <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
           </select>
+          <input id="submit-button" class="button-primary" type="submit" value="CLEAR">
         </form>
       </div>
+    </form>
 
-      <!-- Table of Doom -->
-      <div class="astro-table-container four columns ">
+    <!-- Table of Doom -->
+    <div class="six columns">
+      <div class="astro-table-container eleven columns">
         <table id="astro-data" class="astro-data-table">
           <thead id="astro-data-main-head">
             <tr>
@@ -77,8 +80,10 @@
           <tbody id="astro-table-body"></tbody>
         </table>
       </div>
-    </form>
+    </div>
+    <!-- </div> -->
 
+    <!-- Astronomy Pic Of The Day -->
     <div class="row astro-pic-home six columns">
       <div class="astro-pic-of-the-day eight columns offset-by-two">
         <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
@@ -87,7 +92,11 @@
       </div>
     </div>
 
+    <div id="flying-bus" style="position:absolute"><img id="astro-bus-animate" src="css/space-dust-logo-big.png" alt=""></div>
   </main>
+
+
+
 
 
 </body>

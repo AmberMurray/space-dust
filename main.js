@@ -10,6 +10,8 @@ let wkOfEvents = {}
 let dayVal = ''
 let startDate = ''
 
+
+
 $('#astro-pic-img').hover(function () {
   $('#astro-pic-deets').show()
 }, function () {
@@ -23,8 +25,20 @@ $('.user-date-input').on('submit', function (e) {
 
   //format date for ajax request, reset form fields
   startDate = $('#month-day-year').val()
+  $('.astro-pic-home').hide()
 
   makeRequest(startDate)
+
+  //animate bus - code borrowed from StackOverflow
+  $(document).ready(function() {
+      function busLeft() {
+          $("#flying-bus").animate({left: "-=1500"}, 5000, "swing", busRight);
+      }
+      function busRight() {
+          $("#flying-bus").animate({left: "+=1500"}, 5000, "swing", busLeft);
+      }
+      busRight();
+  });
 
   //get table ready
   $('#event_total').append('Week Of ' + startDate)
@@ -42,6 +56,7 @@ $('.user-date-input').on('submit', function (e) {
     $('#astro-day-total').append('Day Count: ' + wkOfEvents[dayVal].length)
 
     buildTableDAta(dayVal)
+
   })
 
 //build table based on user dropdown choice
@@ -49,9 +64,11 @@ function buildTableDAta (dayVal) {
   for(i = 0; i < wkOfEvents[dayVal].length; i++) {
     let name =  wkOfEvents[dayVal][i]['name']
     let haz = wkOfEvents[dayVal][i]['is_potentially_hazardous_asteroid']
+    let classtype = ''
 
     if (haz) {
-      haz = 'HIDE!';
+      haz = 'HIDE!'
+      classtype = ' class="death"';
     } else {
       haz = 'Whatevs';
     }
@@ -65,7 +82,7 @@ function buildTableDAta (dayVal) {
     let dist = Math.round(wkOfEvents[dayVal][i]['close_approach_data'][0]['miss_distance']['miles'])
     let easyDist = dist.toLocaleString('en')
 
-    $('tbody').append('<tr><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
+    $('tbody').append('<tr' + classtype + '><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
   }
 }
 
@@ -91,6 +108,7 @@ function makeRequest(startDate) {
       }
 
       $('.astro-table-container').show()
+      $('.astro-table-container').addClass('display', 'inline-block')
       $('#daily-count-ttl').append('Date: ' + startDate)
       $('#astro-day-total').append('Day Count: ' + (wkOfEvents[startDate].length))
 
