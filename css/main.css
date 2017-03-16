@@ -23,9 +23,14 @@
 
 #astro-pic-deets {
   margin: 0 auto;
+  height: auto;
   padding: 5px 20px 20px;
   text-align: justify;
   display: none;
+}
+
+#astro-pic-deets:hover {
+  display: block;
 }
 
 /* form styling */
@@ -61,6 +66,8 @@ label {
 .astro-table-container {
   display: none;
 }
+
+
 
 #astro-data {
   float: right;

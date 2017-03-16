@@ -13,6 +13,13 @@ let month = ''
 let day = ''
 let startDate = ''
 
+$('#astro-pic-img').hover(function () {
+  $('#astro-pic-deets').show()
+}, function () {
+  $('#astro-pic-deets').hide()
+})
+
+
 //Get user date
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
@@ -72,6 +79,7 @@ function makeRequest(startDate) {
     method: 'get',
     success: function (data) {
 
+      console.log(data)
       let numEvents = data.element_count
       $('#astro-total').append('Week Count: ' + numEvents)
 
@@ -104,9 +112,8 @@ $.ajax({
   method: 'get',
   success: function (data) {
 
-    console.log(data)
     $('#astro-pic-img').attr('src', data.url)
     $('#astro-pic-title').text(data.title)
-    $('#astro-pic-deets').append('<p>' + data.explanation  + '</p>')
+    $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
   }
 })
