@@ -17,6 +17,8 @@
 
 </head>
 <body>
+
+  <!-- Nav Bar -->
   <nav>
     <div id="logo-container" class="one column offset-by-one">
       <img id="space-dust-logo" src="css/space-dust-logo-small.png" alt="">
@@ -30,17 +32,19 @@
     </div>
   </nav>
 
+  <!-- Main Page -->
   <main>
+    <div class="whitespace"></div>
 
     <!-- User Input Form -->
-    <div class="whitespace"></div>
-    <form class="user-date-input two columns offset-by-one" action="index.html" method="post">
+    <form class="user-date-input six columns" action="index.html" method="post">
       <label class="startDate">Enter A Date</label>
-      <input id="month-day-year" type="date" maxlength="2" name="date-mo" value="">
+      <input id="month-day-year"type="date" maxlength="2" name="date-mo" value="">
       <input id="submit-button" class="button-primary" type="submit" value="submit">
 
+      <div class="whitespace"></div>
 
-      <br>
+      <!-- Pick Another Day Selector -->
       <div class="day-of-week-container">
         <form class="day-of-week" action="index.html" method="post">
           <label for="day-of-week-select">Other Days Around Your Date</label>
@@ -50,6 +54,7 @@
         </form>
       </div>
 
+      <!-- Table of Doom -->
       <div class="astro-table-container four columns ">
         <table id="astro-data" class="astro-data-table">
           <thead id="astro-data-main-head">
@@ -59,9 +64,7 @@
             </tr>
             <tr>
               <th id="daily-count-ttl" colspan='3' for="daily totals"></th>
-
               <th id="astro-day-total"colspan='2' for="day-total"> </th>
-
             </tr>
           </thead>
           <thead>
@@ -76,14 +79,12 @@
       </div>
     </form>
 
-    <div class="row astro-pic-home">
-      <div class="astro-pic-of-the-day four columns offset-by-one">
+    <div class="row astro-pic-home six columns">
+      <div class="astro-pic-of-the-day eight columns offset-by-two">
         <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
         <h4 id="astro-pic-title"></h4>
         <div id="astro-pic-deets"></div>
       </div>
-
-
     </div>
 
   </main>

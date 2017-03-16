@@ -12,6 +12,7 @@ main {
   margin: 0 auto;
 }
 
+/* NAV BAR ---------------- */
 nav {
   width: auto;
   height: 90px;
@@ -30,7 +31,7 @@ nav {
   letter-spacing: 0.8rem;
   line-height: 3.0rem;
   background-color: rgb(1,102,179);
-  margin-top: 25px;
+  margin-top: 30px;
   height: 30px;
   width: 120px;
   border-radius: 2px;
@@ -57,13 +58,12 @@ nav {
 
 #space-dust-logo {
   height: 80px;
-
   margin-top: 5px;
 }
 
 #site-title-container {
   text-align: left;
-  margin:35px auto 0;
+  margin:20px auto 0;
 }
 
 #space-dust-title {
@@ -74,11 +74,12 @@ nav {
   margin: 0 auto;
 }
 
-/* astro pic */
+/* ASTRO PIC ---------------- */
 
 .astro-pic-of-the-day {
   background-color: rgb(204, 204, 204);
   margin: 0 auto;
+
 }
 
 #astro-pic-img {
@@ -102,7 +103,7 @@ nav {
   display: block;
 }
 
-/* form styling */
+/* USER INPUT FORM ---------------- */
 
 .user-date-input {
   text-align: center;
@@ -124,7 +125,17 @@ nav {
 
 #submit-button, #day-select {
   background-color: rgb(1,102,179)
+}
 
+.startDate {
+  font-size: 2.2rem;
+  letter-spacing: 0.45rem;
+}
+
+#month-day-year {
+  display: inline-block;
+  margin-right: 75px;
+  margin-top: 10px;
 }
 
 label {
@@ -135,7 +146,7 @@ option {
   color: white;
 }
 
-/* table styling */
+/* TABLE ---------------- */
 
 .astro-table-container {
   display: none;
