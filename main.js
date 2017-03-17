@@ -12,6 +12,8 @@ let wkOfEvents = {}
 let dayVal = ''
 let startDate = ''
 
+
+//Astronomy Pic of the Day
 var today = new Date().toISOString().slice(0,10);
 makeAstroPic(today);
 
@@ -26,7 +28,7 @@ makeAstroPic(today);
   })
 })()
 
-//Astronomy Pic of the Day
+
 function makeAstroPic (today) {
   $.ajax({
     url: apodURL(today) + apiKey,
@@ -73,7 +75,6 @@ $('.user-date-input').on('submit', function (e) {
 
   });
 
-
   //get table ready
   $('#event_total').append('Week Of ' + startDate)
   $('#month-day-year').val('')
@@ -110,17 +111,19 @@ function buildTableDAta (dayVal) {
     //school bus calc
     let diaMax = Math.round(wkOfEvents[dayVal][i]['estimated_diameter']['feet']['estimated_diameter_max'])
     let diaMin = Math.round(wkOfEvents[dayVal][i]['estimated_diameter']['feet']['estimated_diameter_min'])
-    let dia = Math.round(diaMax + diaMin)/2
-    let astroBus = Math.round((dia/45))
+    let dia = (Math.round(diaMax + diaMin)/2).toFixed(0)
+    let astroBus = (dia/45).toFixed(0)
 
     let dist = Math.round(wkOfEvents[dayVal][i]['close_approach_data'][0]['miss_distance']['miles'])
     let easyDist = dist.toLocaleString('en')
 
     $('tbody').append('<tr' + classtype + '><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
-  } $('tbody').append('<tr><td colspan="5" class="death">HIDE! = potentially hazardous asteroid... That\'s bad.</td></tr>')
+  }
+
+  $('tbody').append('<tr><td colspan="5" class="death">HIDE! = potentially hazardous asteroid... That\'s bad.</td></tr>')
 }
 
-
+//call for astro data
 function makeRequest(startDate) {
   $.ajax({
     url: astroURL(startDate) + apiKey,

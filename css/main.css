@@ -206,10 +206,10 @@ td {
 /* ANIMATION ---------------- */
 
 #flying-bus {
-  postiion: absolute;
+  position: absolute;
   margin-left: -300px;
   margin-right: -300px;
-  top: 875px;
+  top: 800px;
   height: 175px;
 }
 
