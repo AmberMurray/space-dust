@@ -26,9 +26,9 @@
     <div id="site-title-container" class="two columns">
       <h6 id="space-dust-title">Space Dust</h6>
     </div>
-    <div id="nav-links">
+    <ol id="nav-links">
       <li id="cneos-link"><a href="https://cneos.jpl.nasa.gov/" target="_blank">MORE ASTROS</a></li>
-    </div>
+    </ol>
   </nav>
 
   <!-- Main Page -->
@@ -39,7 +39,7 @@
     <!-- <div class="info-wrapper"> -->
     <form class="user-date-input six columns" action="index.html" method="post">
       <label class="startDate">Enter A Date</label>
-      <input id="month-day-year"type="date" name="date-mo" value=""> <br>
+      <input id="month-day-year" type="date" name="date-mo" value=""> <br>
       <input id="submit-button" class="button-primary" type="submit" value="submit"> <br>
       <input id="clear-button" class="button-primary" type="reset" value="CLEAR">
 
@@ -47,12 +47,12 @@
 
       <!-- Pick Another Day Selector -->
       <div class="day-of-week-container">
-        <form class="day-of-week" action="index.html" method="post">
+        <div class="day-of-week">
           <label id="day-of-week-select">Check Other Days</label>
-          <select id="day-select" value="">
+          <select id="day-select">
             <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
           </select>
-        </form>
+        </div>
       </div>
     </form>
 
@@ -62,15 +62,13 @@
         <table id="astro-data" class="astro-data-table">
           <thead id="astro-data-main-head">
             <tr>
-              <th id="event_total" colspan='3' for="event totals"></th>
-              <th id="astro-total" colspan='2' for="astro-total"></th>
+              <th id="event_total" colspan='3'></th>
+              <th id="astro-total" colspan='2'></th>
             </tr>
             <tr>
-              <th id="daily-count-ttl" colspan='3' for="daily totals"></th>
-              <th id="astro-day-total"colspan='2' for="day-total"> </th>
+              <th id="daily-count-ttl" colspan='3'></th>
+              <th id="astro-day-total" colspan='2'> </th>
             </tr>
-          </thead>
-          <thead>
             <th class="potential-haz">Bad 4 Earth</th>
             <th>Name</th>
             <th># School Busses Long</th>
@@ -87,11 +85,11 @@
     <div class="row astro-pic-home six columns">
       <form class="pic-date-input" action="index.html" method="post">
         <label class="newPicDate">See Other Pics</label>
-        <input id="pic-month-day-year"type="date" min="1995-06-17" name="date-mo" value=""> <br>
+        <input id="pic-month-day-year" type="date" min="1995-06-17" name="date-mo" value=""> <br>
         <input id="pic-submit-button" class="button-primary" type="submit" value="submit"> <br>
       </form>
       <div class="astro-pic-of-the-day eight columns offset-by-two">
-        <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
+        <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"><img id="astro-pic-img" class="astro-pic-of-the-day" alt=""></a>
         <h4 id="astro-pic-title"></h4>
         <div id="astro-pic-deets"></div>
       </div>
