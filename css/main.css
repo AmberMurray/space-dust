@@ -5,7 +5,7 @@
 }
 
 .whitespace {
-  height: 50px;
+  height: 100px;
 }
 
 .morewhitespace {
@@ -40,9 +40,9 @@ main {
   letter-spacing: 0.8rem;
   line-height: 3.0rem;
   background-color: rgb(1,102,179);
-  margin-top: 30px;
-  height: 30px;
-  width: 120px;
+  margin-top: 15px;
+  height: 60px;
+  width: 140px;
   border-radius: 2px;
 }
 
@@ -51,7 +51,7 @@ main {
 }
 
 #nav-links a {
-  color: rgb(255,255,255);
+  color: rgb(204,204,204);
   text-decoration: none;
 }
 
@@ -80,10 +80,13 @@ main {
 
 /* ASTRO PIC ---------------- */
 
+.astro-pic-home {
+  text-align: center;
+}
+
 .astro-pic-of-the-day {
   background-color: rgb(204, 204, 204);
   margin: 0 auto;
-
 }
 
 #astro-pic-img {
@@ -107,6 +110,11 @@ main {
   display: block;
 }
 
+h6 {
+  color: rgb(204, 204, 204);
+  letter-spacing: 0.2rem;
+}
+
 /* USER INPUT FORM ---------------- */
 
 .user-date-input {
@@ -127,27 +135,32 @@ main {
   margin: 0 auto;
 }
 
-#submit-button, select {
+#submit-button, #pic-submit-button, select {
   background-color: rgb(1,102,179);
   border: 1px solid rgb(1,102,179);
   color: rgb(255,255,255);
 }
 
-.startDate, #day-of-the-week-selector {
+#clear-button {
+  background-color: rgb(204, 204, 204);
+  color: rgb(0,0,0);
+  border: rgb(204, 204, 204);
+}
+
+.startDate, #day-of-the-week-selector, .newPicDate {
   font-size: 2.2rem;
   letter-spacing: 0.3rem;
 }
 
-#month-day-year {
+#month-day-year, #pic-month-day-year {
   display: inline-block;
-
   margin-top: 10px;
 }
 
 label {
-  color: rgb(255,255,255);
+  color: rgb(204, 204, 204);
   font-size: 2.2rem;
-  letter-spacing: 0.45rem
+  letter-spacing: 0.45rem;
 }
 
 option {
@@ -190,11 +203,17 @@ td {
   font-weight: 600;
 }
 
-/* BUS ANIMATION ---------------- */
+/* ANIMATION ---------------- */
+
+#flying-bus {
+  postiion: absolute;
+  margin-left: -300px;
+  margin-right: -300px;
+  top: 875px;
+  height: 175px;
+}
 
 #astro-bus-animate {
-
-  position: absolute;
-  top: 675px;
   height: 175px;
+  position: relative;
 }

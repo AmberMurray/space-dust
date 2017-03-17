@@ -13,8 +13,34 @@ let dayVal = ''
 let startDate = ''
 
 var today = new Date().toISOString().slice(0,10);
-
 makeAstroPic(today);
+
+(function pickPicDate () {
+  $('.pic-date-input').on('submit', function(e) {
+    e.preventDefault()
+    $('#astro-pic-deets').empty();
+    $('#astro-pic-title').empty()
+
+    today = $('#pic-month-day-year').val()
+    makeAstroPic(today);
+  })
+})()
+
+//Astronomy Pic of the Day
+function makeAstroPic (today) {
+  $.ajax({
+    url: apodURL(today) + apiKey,
+    method: 'get',
+    success: function (data) {
+
+      $('#astro-pic-img').attr('src', data.url)
+      $('#astro-pic-title').text(data.title)
+      $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
+    }, error: function(error) {
+      alert('Error! Error!: ' + error)
+    }
+  })
+}
 
 $('#astro-pic-img').hover(function () {
   $('#astro-pic-deets').show()
@@ -22,33 +48,31 @@ $('#astro-pic-img').hover(function () {
   $('#astro-pic-deets').hide()
 })
 
-// $('#month-day-year').on('click', function () {
-//    location.reload();
-//  })
-
+$('#clear-button').on('click', function () {
+  location.reload();
+})
 
 //Get user date
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
-
   //format date for ajax request, reset form fields
   startDate = $('#month-day-year').val()
   $('.astro-pic-home').hide()
-
   makeRequest(startDate)
-
   $('#month-day-year').empty()
 
   //animate bus - code borrowed from StackOverflow
   $(document).ready(function() {
-      function busLeft() {
-          $("#flying-bus").animate({left: "-=1500"}, 5000, "swing", busRight);
-      }
-      function busRight() {
-          $("#flying-bus").animate({left: "+=1500"}, 5000, "swing", busLeft);
-      }
-      busRight();
+    function busLeft() {
+      $("#flying-bus").animate({left: "-=3500"}, 4000, "swing", busRight);
+    }
+    function busRight() {
+      $("#flying-bus").animate({left: "+=3500"}, 4000, "swing", busLeft);
+    }
+    busRight();
+
   });
+
 
   //get table ready
   $('#event_total').append('Week Of ' + startDate)
@@ -56,18 +80,18 @@ $('.user-date-input').on('submit', function (e) {
 })
 
 //allow user to select from week dropdown
-  $('#day-select').on('change', function() {
-    $('tbody').empty()
-    $('#astro-day-total').empty()
-    $('#daily-count-ttl').empty()
+$('#day-select').on('change', function() {
+  $('tbody').empty()
+  $('#astro-day-total').empty()
+  $('#daily-count-ttl').empty()
 
-    dayVal = $('#day-select option:selected').val()
-    $('#daily-count-ttl').append('Date: ' + dayVal)
-    $('#astro-day-total').append('Day Count: ' + wkOfEvents[dayVal].length)
+  dayVal = $('#day-select option:selected').val()
+  $('#daily-count-ttl').append('Date: ' + dayVal)
+  $('#astro-day-total').append('Day Count: ' + wkOfEvents[dayVal].length)
 
-    buildTableDAta(dayVal)
+  buildTableDAta(dayVal)
 
-  })
+})
 
 //build table based on user dropdown choice
 function buildTableDAta (dayVal) {
@@ -93,7 +117,7 @@ function buildTableDAta (dayVal) {
     let easyDist = dist.toLocaleString('en')
 
     $('tbody').append('<tr' + classtype + '><td>'+ haz +'</td><td>'+ name +'</td><td>'+ astroBus +'</td><td>'+ dia +'</td><td>'+ easyDist +'</td>' + '</tr>')
-  }
+  } $('tbody').append('<tr><td colspan="5" class="death">HIDE! = potentially hazardous asteroid... That\'s bad.</td></tr>')
 }
 
 
@@ -103,7 +127,6 @@ function makeRequest(startDate) {
     method: 'get',
     success: function (data) {
 
-      console.log(data)
       let numEvents = data.element_count
       $('#astro-total').append('Week Count: ' + numEvents)
 
@@ -114,7 +137,7 @@ function makeRequest(startDate) {
 
       for(let date in wkOfEvents) {
 
-      $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
+        $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
       }
 
       $('.astro-table-container').show()
@@ -123,24 +146,9 @@ function makeRequest(startDate) {
       $('#astro-day-total').append('Day Count: ' + (wkOfEvents[startDate].length))
 
       buildTableDAta(startDate)
-    }
-    // error: function (error) {
-    //   console.log('Error: ', error)
-    // }
-  })
-}
-
-
-//Astronomy Pic of the Day
-function makeAstroPic (today) {
-  $.ajax({
-    url: apodURL(today) + apiKey,
-    method: 'get',
-    success: function (data) {
-
-      $('#astro-pic-img').attr('src', data.url)
-      $('#astro-pic-title').text(data.title)
-      $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
+    },
+    error: function (error) {
+      console.log('Error: ', error)
     }
   })
 }
