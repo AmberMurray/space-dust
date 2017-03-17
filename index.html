@@ -39,19 +39,19 @@
     <!-- <div class="info-wrapper"> -->
     <form class="user-date-input six columns" action="index.html" method="post">
       <label class="startDate">Enter A Date</label>
-      <input id="month-day-year"type="date" maxlength="2" name="date-mo" value="">
-      <input id="submit-button" class="button-primary" type="submit" value="submit">
+      <input id="month-day-year"type="date" maxlength="2" name="date-mo" value=""> <br>
+      <input id="submit-button" class="button-primary" type="submit" value="submit"> <br>
+      <!-- <input id="submit-button" class="button-primary" type="reset" value="CLEAR"> -->
 
       <div class="morewhitespace"></div>
 
       <!-- Pick Another Day Selector -->
       <div class="day-of-week-container">
         <form class="day-of-week" action="index.html" method="post">
-          <label id="day-of-week-select">Other Days Around Your Date</label>
+          <label id="day-of-week-select">Other Days <br>Around Your Date</label>
           <select id="day-select" value="">
             <option id="pick-a-day" value="" disabled selected>Choose wisely!</option>
           </select>
-          <input id="submit-button" class="button-primary" type="submit" value="CLEAR">
         </form>
       </div>
     </form>
@@ -86,7 +86,7 @@
     <!-- Astronomy Pic Of The Day -->
     <div class="row astro-pic-home six columns">
       <div class="astro-pic-of-the-day eight columns offset-by-two">
-        <a href="https://apod.nasa.gov/apod/astropix.html"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
+        <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"><img id="astro-pic-img" class="astro-pic-of-the-day" src="" alt=""></a>
         <h4 id="astro-pic-title"></h4>
         <div id="astro-pic-deets"></div>
       </div>

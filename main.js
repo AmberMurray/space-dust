@@ -1,7 +1,9 @@
 console.log('main.js here!')
 
 let apiKey = 'n58uEY6MvzF3sxKPk7ZgM4k02830Ihr4qe11a6pV'
-let apodURL = 'https://api.nasa.gov/planetary/apod?api_key='
+let apodURL = function(today) {
+  return 'https://api.nasa.gov/planetary/apod?date=' + today + '&api_key='
+}
 let astroURL = function (startDate) {
   return 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + startDate + '&api_key='
 }
@@ -10,13 +12,19 @@ let wkOfEvents = {}
 let dayVal = ''
 let startDate = ''
 
+var today = new Date().toISOString().slice(0,10);
 
+makeAstroPic(today);
 
 $('#astro-pic-img').hover(function () {
   $('#astro-pic-deets').show()
 }, function () {
   $('#astro-pic-deets').hide()
 })
+
+// $('#month-day-year').on('click', function () {
+//    location.reload();
+//  })
 
 
 //Get user date
@@ -28,6 +36,8 @@ $('.user-date-input').on('submit', function (e) {
   $('.astro-pic-home').hide()
 
   makeRequest(startDate)
+
+  $('#month-day-year').empty()
 
   //animate bus - code borrowed from StackOverflow
   $(document).ready(function() {
@@ -122,13 +132,15 @@ function makeRequest(startDate) {
 
 
 //Astronomy Pic of the Day
-$.ajax({
-  url: apodURL + apiKey,
-  method: 'get',
-  success: function (data) {
+function makeAstroPic (today) {
+  $.ajax({
+    url: apodURL(today) + apiKey,
+    method: 'get',
+    success: function (data) {
 
-    $('#astro-pic-img').attr('src', data.url)
-    $('#astro-pic-title').text(data.title)
-    $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
-  }
-})
+      $('#astro-pic-img').attr('src', data.url)
+      $('#astro-pic-title').text(data.title)
+      $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
+    }
+  })
+}

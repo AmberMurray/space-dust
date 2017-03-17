@@ -127,18 +127,20 @@ main {
   margin: 0 auto;
 }
 
-#submit-button, #day-select {
-  background-color: rgb(1,102,179)
+#submit-button, select {
+  background-color: rgb(1,102,179);
+  border: 1px solid rgb(1,102,179);
+  color: rgb(255,255,255);
 }
 
 .startDate, #day-of-the-week-selector {
   font-size: 2.2rem;
-  letter-spacing: 0.45rem;
+  letter-spacing: 0.3rem;
 }
 
 #month-day-year {
   display: inline-block;
-  margin-right: 75px;
+
   margin-top: 10px;
 }
 
