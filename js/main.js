@@ -1,54 +1,10 @@
 console.log('main.js here!')
 
-let apiKey = 'n58uEY6MvzF3sxKPk7ZgM4k02830Ihr4qe11a6pV'
-let apodURL = function(today) {
-  return 'https://api.nasa.gov/planetary/apod?date=' + today + '&api_key='
-}
-let astroURL = function (startDate) {
-  return 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + startDate + '&api_key='
-}
-let busLength = 45
+const busLength = 45
 let wkOfEvents = {}
 let dayVal = ''
 let startDate = ''
 
-
-//Astronomy Pic of the Day
-var today = new Date().toISOString().slice(0,10);
-makeAstroPic(today);
-
-(function pickPicDate () {
-  $('.pic-date-input').on('submit', function(e) {
-    e.preventDefault()
-    $('#astro-pic-deets').empty();
-    $('#astro-pic-title').empty()
-
-    today = $('#pic-month-day-year').val()
-    makeAstroPic(today);
-  })
-})()
-
-
-function makeAstroPic (today) {
-  $.ajax({
-    url: apodURL(today) + apiKey,
-    method: 'get',
-    success: function (data) {
-
-      $('#astro-pic-img').attr('src', data.url)
-      $('#astro-pic-title').text(data.title)
-      $('#astro-pic-deets').append('<p id="astro-pic-deets-p">' + data.explanation  + '</p>')
-    }, error: function(error) {
-      alert('Error! Error!: ' + error)
-    }
-  })
-}
-
-$('#astro-pic-img').hover(function () {
-  $('#astro-pic-deets').show()
-}, function () {
-  $('#astro-pic-deets').hide()
-})
 
 $('#clear-button').on('click', function () {
   location.reload();
@@ -121,37 +77,4 @@ function buildTableDAta (dayVal) {
   }
 
   $('tbody').append('<tr><td colspan="5" class="death">HIDE! = potentially hazardous asteroid... That\'s bad.</td></tr>')
-}
-
-//call for astro data
-function makeRequest(startDate) {
-  $.ajax({
-    url: astroURL(startDate) + apiKey,
-    method: 'get',
-    success: function (data) {
-
-      let numEvents = data.element_count
-      $('#astro-total').append('Week Count: ' + numEvents)
-
-      $('#event_total').show()
-      $('.day-of-week-container').show()
-
-      wkOfEvents = data.near_earth_objects
-
-      for(let date in wkOfEvents) {
-
-        $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
-      }
-
-      $('.astro-table-container').show()
-      $('.astro-table-container').addClass('display', 'inline-block')
-      $('#daily-count-ttl').append('Date: ' + startDate)
-      $('#astro-day-total').append('Day Count: ' + (wkOfEvents[startDate].length))
-
-      buildTableDAta(startDate)
-    },
-    error: function (error) {
-      console.log('Error: ', error)
-    }
-  })
 }
