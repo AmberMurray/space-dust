@@ -24,11 +24,15 @@ function makeRequest(startDate) {
 }
 
 function getStuffReady() {
-  $('#astro-total').append('Week Count: ' + numEvents)
+  $('.astro-pic-home').hide()
+  $('#month-day-year').empty()
+  $('#month-day-year').val('')
   $('#event_total').show()
   $('.day-of-week-container').show()
   $('.astro-table-container').show()
-  $('.astro-table-container').addClass('display', 'inline-block')
+  $('#astro-total').append('Week Count: ' + numEvents)
+  $('#event_total').append('Week Of ' + startDate)
   $('#daily-count-ttl').append('Date: ' + startDate)
   $('#astro-day-total').append('Day Count: ' + (wkOfEvents[startDate].length))
+  $('.astro-table-container').addClass('display', 'inline-block')
 }

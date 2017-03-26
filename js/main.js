@@ -5,35 +5,13 @@ let wkOfEvents = {}
 let dayVal = ''
 let startDate = ''
 
-
-$('#clear-button').on('click', function () {
-  location.reload();
-})
-
 //Get user date
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
-  //format date for ajax request, reset form fields
+
   startDate = $('#month-day-year').val()
-  $('.astro-pic-home').hide()
   makeRequest(startDate)
-  $('#month-day-year').empty()
-
-  //animate bus - code borrowed from StackOverflow
-  $(document).ready(function() {
-    function busLeft() {
-      $("#flying-bus").animate({left: "-=3500"}, 4000, "swing", busRight);
-    }
-    function busRight() {
-      $("#flying-bus").animate({left: "+=3500"}, 4000, "swing", busLeft);
-    }
-    busRight();
-
-  });
-
-  //get table ready
-  $('#event_total').append('Week Of ' + startDate)
-  $('#month-day-year').val('')
+  busAnimate()
 })
 
 //allow user to select from week dropdown
@@ -78,3 +56,7 @@ function buildTableDAta (dayVal) {
 
   $('tbody').append('<tr><td colspan="5" class="death">HIDE! = potentially hazardous asteroid... That\'s bad.</td></tr>')
 }
+
+$('#clear-button').on('click', function () {
+  location.reload();
+})
