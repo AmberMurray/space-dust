@@ -7,20 +7,14 @@ function makeRequest(startDate) {
     url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&api_key=${apiKey}`,
     method: 'get',
     success: function (data) {
-      console.log(data)
-
       numEvents = data.element_count
       wkOfEvents = data.near_earth_objects
 
-
-
       for(let date in wkOfEvents) {
-
         $('#day-select').append('<option value="' + date + '">'+ date + '</option>')
       }
 
       getStuffReady ()
-
       buildTableDAta(startDate)
     },
     error: function (error) {
