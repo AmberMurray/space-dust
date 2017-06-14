@@ -3,21 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Space Dust</title>
-
-    <!-- vendor normalize & css framework-->
-    <link rel="stylesheet" href="vendor/skeleton_normalize.css">
-    <link rel="stylesheet" href="vendor/skeleton.css">
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/main.css">
-
-
-    <!-- jquery/jslinks -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script defer type="text/javascript" src="js/astropic.js"></script>
-    <script defer type="text/javascript" src="js/astrodata.js"></script>
-    <script defer type="text/javascript" src="js/main.js"></script>
-    <script defer type="text/javascript" src="vendor/stackoverflow.js"></script>
   </head>
   <body>
 
@@ -35,25 +20,8 @@
     </nav>
 
     <!-- Main Page -->
-    <main class="container">
+    <main>
       <div class="whitespace"></div>
-
-      <!-- Astronomy Pic Of The Day -->
-      <div class="row">
-        <div class="astro-pic-home six columns">
-          <form class="pic-date-input" action="index.html" method="post">
-            <label class="newPicDate">See Other Pics</label>
-            <input id="pic-month-day-year" type="date" min="1995-06-17" name="date-mo" value=""> <br>
-            <input id="pic-submit-button" class="button-primary" type="submit" value="submit"> <br>
-          </form>
-          <div class="astro-pic-of-the-day eight columns offset-by-two">
-            <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"><img id="astro-pic-img" class="astro-pic-of-the-day" alt=""></a>
-            <h4 id="astro-pic-title"></h4>
-          </div>
-        </div>
-      </div>
-
-      <div class="six columns" id="astro-pic-deets"></div>
 
       <!-- User Input Form -->
       <!-- <div class="info-wrapper"> -->
@@ -100,7 +68,19 @@
         </div>
       </div>
 
-
+      <!-- Astronomy Pic Of The Day -->
+      <div class="row astro-pic-home six columns">
+        <form class="pic-date-input" action="index.html" method="post">
+          <label class="newPicDate">See Other Pics</label>
+          <input id="pic-month-day-year" type="date" min="1995-06-17" name="date-mo" value=""> <br>
+          <input id="pic-submit-button" class="button-primary" type="submit" value="submit"> <br>
+        </form>
+        <div class="astro-pic-of-the-day eight columns offset-by-two">
+          <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"><img id="astro-pic-img" class="astro-pic-of-the-day" alt=""></a>
+          <h4 id="astro-pic-title"></h4>
+          <div id="astro-pic-deets"></div>
+        </div>
+      </div>
 
       <!-- Amazing flying bus -->
       <div id="flying-bus" style="position:absolute"><img id="astro-bus-animate" src="pics/space-dust-logo-big.png" alt=""></div>

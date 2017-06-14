@@ -1,11 +1,10 @@
 * body {
   margin: 0 auto;
-  /*background-color: rgb(49, 99, 178)*/
   background-color: rgb(38,38,38)
 }
 
 .whitespace {
-  height: 100px;
+  height: 50px;
 }
 
 .morewhitespace {
@@ -99,6 +98,10 @@ main {
 }
 
 #astro-pic-deets {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  background-color: rgb(204, 204, 204);
   margin: 0 auto;
   height: auto;
   padding: 5px 20px 20px;
