@@ -1,8 +1,6 @@
-console.log('astropic.js here!')
-
 const apiKey = 'n58uEY6MvzF3sxKPk7ZgM4k02830Ihr4qe11a6pV'
 
-let today = new Date().toISOString().slice(0,10);
+let today = new Date().toISOString().slice(0,10)
 
 function makeAstroPic (today) {
   $.ajax({
@@ -17,14 +15,14 @@ function makeAstroPic (today) {
     }
   })
 }
-makeAstroPic(today);
+makeAstroPic(today)
 
 $('.pic-date-input').on('submit', function(e) {
   e.preventDefault()
-  $('#astro-pic-deets').empty();
+  $('#astro-pic-deets').empty()
   $('#astro-pic-title').empty()
   today = $('#pic-month-day-year').val()
-  makeAstroPic(today);
+  makeAstroPic(today)
 })
 
 $('#astro-pic-img').hover(function () {

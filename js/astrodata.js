@@ -1,5 +1,3 @@
-console.log('astrodata.js here')
-
 let numEvents = ''
 
 function makeRequest(startDate) {

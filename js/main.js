@@ -1,5 +1,3 @@
-console.log('main.js here!')
-
 const busLength = 45
 let wkOfEvents = {}
 let dayVal = ''
@@ -37,9 +35,9 @@ function buildTableDAta (dayVal) {
 
     if (haz) {
       haz = 'HIDE!'
-      classtype = ' class="death"';
+      classtype = ' class="death"'
     } else {
-      haz = 'Whatevs';
+      haz = 'Whatevs'
     }
 
     //school bus calc
@@ -58,5 +56,5 @@ function buildTableDAta (dayVal) {
 }
 
 $('#clear-button').on('click', function () {
-  location.reload();
+  location.reload()
 })

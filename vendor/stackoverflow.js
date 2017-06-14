@@ -1,5 +1,3 @@
-console.log('stackoverflow.js')
-
 function busAnimate () {
   $(document).ready(function() {
     function busLeft() {
@@ -8,7 +6,7 @@ function busAnimate () {
     function busRight() {
       $("#flying-bus").animate({left: "+=3500"}, 4000, "swing", busLeft);
     }
-    busRight();
+    busRight()
 
-  });
+  })
 }
