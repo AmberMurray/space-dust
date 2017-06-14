@@ -7,9 +7,16 @@ let startDate = ''
 $('.user-date-input').on('submit', function (e) {
   e.preventDefault()
 
+
   startDate = $('#month-day-year').val()
+  $('tbody').empty()
+  $('#astro-total').text('')
+  $('#event_total').text('')
+  $('#daily-count-ttl').text('')
+  $('#astro-day-total').text('')
   makeRequest(startDate)
   busAnimate()
+  $('#month-day-year').empty('')
 })
 
 //allow user to select from week dropdown
